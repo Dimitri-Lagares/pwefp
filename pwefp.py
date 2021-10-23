@@ -291,9 +291,9 @@ def polybar():
     os.system("sudo chmod +x /bin/cleartarget")
    
     #Instalando la hacknerd font
-    os.system("sudo cp hack.zip /usr/local/share/fonts/")
-    os.system("sudo unzip hack.zip")
-    os.system("sudo rm hack.zip")
+    os.system("sudo cp Hack.zip /usr/local/share/fonts/")
+    os.system("sudo unzip Hack.zip")
+    os.system("sudo rm Hack.zip")
     os.system("fc-cache -v")
 
     #Cambiando el grupo de /opt/de root a usuario
@@ -376,7 +376,7 @@ def polybar():
     os.system("""echo"alias catnl='/bin/bat --paging=never'" >> ~/.zshrc""")
 
     # Instalando lsd
-    os.system("sudo dpkg -i lsd_0.20.3_amd.deb")
+    os.system("sudo dpkg -i lsd-musl_0.20.1_amd64.deb")
     os.system("""echo"alias ll='lsd -lh --group-dirs=first'" >> ~/.zshrc""")
     os.system("""echo"alias la='lsd -a --group-dirs=first'" >> ~/.zshrc""")
     os.system("""echo"alias l='lsd --group-dirs=first'" >> ~/.zshrc""")
