@@ -385,9 +385,8 @@ def polybar():
 
     # Instalando fzf
     os.system("git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf")
-    os.system("~/.fzf/install")
-    os.system("")
-###############################################################################################################    
+    os.system("~/.fzf/install --all")
+
     # Instalando sudo plugin para zsh
     os.system("sudo mkdir -p /usr/share/zsh-plugins/")
     os.system("chown $user:$group zsh-plugins")
