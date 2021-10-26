@@ -3,6 +3,7 @@ import os, time, signal, sys,subprocess
 from sys import stdout
 option = int
 selectying = str
+
 def sig_handler(sig, frame):
     red()
     print("\n\n\033[1;33m[+] \033[1;31mUsted ha abortado la instalación!!!\033[1;33m [+]")
@@ -14,7 +15,6 @@ def whatOS():
     global OperatingSystem
     if True:
         OperatingSystem=os.popen("lsb_release -a 2>/dev/null | grep 'Contributor ID:' | awk '{print$3}").read()
-        #OS = subprocess.run("whatOS=$(lsb_release -a | grep 'Distributor ID:') 2>/dev/null")
         print(OperatingSystem)
     #else:
         #os.system("whatOS=$(uname -a | awk '{print$2}')")
@@ -30,17 +30,24 @@ def PrintOS():
 
     if OS == '1':
         selectying = "Kali Linux"
+        print(f"\nSelecciono \033[1;35m: \033[1;34m{selectying}")
+        prueba=selectying
+        menu()
     elif OS == '2':
-        selectying = str("Parrot OS")
+        selectying = "Parrot OS"
+        print(f"\nSelecciono \033[1;35m: \033[1;34m{selectying}")
+        menu()
     elif OS == '3':
-        selectying = str("Arch Linux")
+        selectying = "Arch Linux"
+        print(f"\nSelecciono \033[1;35m: \033[1;34m{selectying}")
+        menu()
     else:
         print("Por favor seleccione una opción del 1 al 3:")
         while OS != '1' or '2' or '3':
-        #while selectying != "Kali Linux" or "Parrot OS" or "Arch Linux":
-            OS=
+            OS=""
             PrintOS()    
     print(f"\n\033[1;33mSelecciono\033[1;35m : \033[1;34m{selectying}")
+    return prueba
     #menu()
 
 def red():
