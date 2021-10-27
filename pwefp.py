@@ -325,7 +325,7 @@ def polybar():
     os.system("mkdir ~/.config/picom")
     os.system("echo 'bspc config focus_follows_pointer true' >> ~/.config/bspwm/bspwmrc")
     
-    expback = input("\n\033[1;33mDesea usar los experimental-backends en picom? Si no se activa se puede detectar lentitud en el equipo al no disponer de una buena GPU. ¿Si o No? -> ")
+    expback = input("\n\033[1;33mDesea usar los experimental-backends en picom? Si no se activa se puede detectar lentitud en el equipo al no disponer de una buena GPU. ¿Si o No? -> \033[0m")
 
     if expback == 'si' or 'Si' or 'SI' or 'sI':
         os.system("cp picom.conf ~/.config/picom")
@@ -400,6 +400,9 @@ def polybar():
     os.system("git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf")
     os.system("~/.fzf/install --all")
 
+    #instalando ranger
+    os.system()
+    
     # Instalando sudo plugin para zsh
     os.system("sudo mkdir -p /usr/share/zsh-plugins/")
     os.system("chown $user:$group zsh-plugins")
