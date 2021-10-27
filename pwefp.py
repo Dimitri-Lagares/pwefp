@@ -113,7 +113,7 @@ def menu():
     time.sleep(0.2)
     print("\n6 -> Salir")
     time.sleep(0.2)
-    print(banner3," '\033[1;31m'¡Si no es asi!'\033[1;33m' Presione 7 para cambiar su sistema operativo")
+    print(banner3," \033[1;31m¡Si no es asi!\033[1;33m Presione 7 para cambiar su sistema operativo")
 
     option = int(input("\n--> Seleccione una opción: "))
 
@@ -164,7 +164,8 @@ def requirements():
     os.system("sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y")
     os.system("sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev -y")
     os.system("sudo apt install bspwm rofi caja feh gnome-terminal scrot neovim xclip tmux acpi scrub bat wmname firejail rofi feh ranger -y")
-
+    
+    green()
     print("[+] Requerimientos instalados correctamente")
 
 def bspwm ():
@@ -174,7 +175,7 @@ def bspwm ():
 
     # Instalando los requeremientos necesarios
     os.system("sudo apt update")
-    os.system("sudo apt install build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev ")
+    os.system("sudo apt install build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y")
     # Instalando bspwm 
     os.system("git clone https://github.com/baskerville/bspwm.git")
     os.system("cd bspwm")
@@ -206,15 +207,18 @@ def bspwm ():
     os.system("cp bspwm_resize ~/.config/bspwm/scripts/")
     os.system("chmod +x ~/.config/bspwm/scripts/bspwm_resize")
     
+    green()
     print("\n[+] Bspwm instalado correctamente!")
 
 def grub_faster():
     green()
-    print("[+] ACELERANDO ARRANQUE...\n")
+    print("[+] ACELERANDO ARRANQUE...\n\033[0m")
 
     os.system("sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub")
     os.system("sudo update-grub")
     time.sleep(2)
+    
+    green()
     print("\n[+] ARRANQUE ACELERADO!!!")
 
 def polybar():
@@ -274,9 +278,9 @@ def polybar():
 
     #Eliminando el repositorio local de blue-sky y configurando la polybar 
 
-    os.system("rm -r blue-sky")
+    os.system("sudo rm -r blue-sky")
     os.system("cd ~/.config/polybar/")
-    os.system("rm current.ini workspace.ini")
+    os.system("sudo rm current.ini workspace.ini")
     os.system("cd -")
     os.system("cp current.ini workspace.ini ~/.config/polybar/")
     os.system("mkdir ~/.config/bin")
@@ -321,12 +325,12 @@ def polybar():
     os.system("mkdir ~/.config/picom")
     os.system("echo 'bspc config focus_follows_pointer true' >> ~/.config/bspwm/bspwmrc")
     
-    expback = input("\nDesea usar los experimental-backends en picom? Si no se activa se puede detectar lentitud en el equipo al no disponer de una buena GPU. ¿Si o No? -> ")
+    expback = input("\n\033[1;33mDesea usar los experimental-backends en picom? Si no se activa se puede detectar lentitud en el equipo al no disponer de una buena GPU. ¿Si o No? -> ")
 
-    if expback == "si or Si or SI or sI":
+    if expback == 'si' or 'Si' or 'SI' or 'sI':
         os.system("cp picom.conf ~/.config/picom")
 
-    if expback == "no or No NO nO":
+    if expback == 'no' or 'No' or 'NO' or 'nO':
         os.system("cp picom-blur.conf ~/.config/picom/picom.conf")
 
     os.system("echo 'bspc config border_width 0' >> ~/.config/bspwm/bspwmrc")
@@ -341,8 +345,8 @@ def polybar():
     os.system("sudo echo 'source ~/.powerlevel10k/powerlevel10k.zsh-theme' >> /root/.zshrc")
    
     # Seleccionando si quiere configurar la p10k a su gusto o si quiere una identica a la de S4vitar
-    optzsh=input("'\033[1;31m'\n¿Desea tener su zsh identica a la de s4vitar o desea ejecutar el asistente de instalacion de p10k?\nDigite Si para tener su zsh igual a la de S4vitar digite No para ejecutar el asistente")
-    if optzsh == Si or si or sI or SI:
+    optzsh=input("'\033[1;33m'\n¿Desea tener su zsh identica a la de s4vitar o desea ejecutar el asistente de instalacion de p10k?\nDigite Si para tener su zsh igual a la de S4vitar digite No para ejecutar el asistente -> ")
+    if optzsh == 'Si' or 'si' or 'sI' or 'SI':
         os.system("cp ~.p10k.zsh")
         os.system("sudo cp ~.p10k.zsh")
 
@@ -456,6 +460,7 @@ def polybar():
     os.system("notify-send 'Atencion!!! rofi-theme-selector' 'Por favor seleccione el tema nord al final de la lista y luego presione la tecla enter para previsualizar el tema y luego presione las teclas alt + a'")
     os.system("rofi-theme-selector")
 
+    green()
     print("\n[+] POLYBAR Y DEMAS INSTALADO!!!")
 
 if __name__ == '__main__':
