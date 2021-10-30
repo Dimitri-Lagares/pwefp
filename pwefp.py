@@ -160,11 +160,11 @@ def requirements():
 
     # Instalando Requerimientos
     os.system("sudo apt update")
-    os.system("sudo apt install net-tools libuv1-dev build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y")
-    os.system("sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y")
-    os.system("sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev -y")
-    os.system("sudo apt install bspwm rofi caja feh gnome-terminal scrot neovim xclip tmux acpi scrub bat wmname firejail rofi feh ranger -y")
-    
+    os.system("sudo apt install -y net-tools libuv1-dev build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y")
+    os.system("sudo apt install -y cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y")
+    os.system("sudo apt install -y meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev -y")
+    os.system("sudo apt install -y bspwm rofi caja feh gnome-terminal scrot neovim xclip tmux acpi scrub bat wmname firejail rofi feh -y")
+    os.system("sudo apt install -y libevdev-doc libx11-doc -y")
     green()
     print("[+] Requerimientos instalados correctamente")
 
@@ -175,13 +175,13 @@ def bspwm ():
 
     # Instalando los requeremientos necesarios
     os.system("sudo apt update")
-    os.system("sudo apt install build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y")
+    os.system("sudo apt install -y build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y")
     # Instalando bspwm 
     os.system("git clone https://github.com/baskerville/bspwm.git")
     os.system("cd bspwm")
     os.system("make")
     os.system("sudo make install")
-    os.system("sudo apt install bspwm")
+    os.system("sudo -y apt install bspwm -y")
     os.system("cd ..")
     # Eliminando el repositorio local de bspwm
     os.system("sudo rm -r bspwm")
@@ -201,8 +201,7 @@ def bspwm ():
     # Eliminando el repositorio local de sxhkd
     os.system("sudo rm -r sxhkd")
 
-    #Copiando`+
-    #  el archivo bspwm_resize
+    # Copiando el archivo bspwm_resize
     os.system("mkdir ~/.config/bspwm/scripts/")
     os.system("cp bspwm_resize ~/.config/bspwm/scripts/")
     os.system("chmod +x ~/.config/bspwm/scripts/bspwm_resize")
@@ -228,8 +227,9 @@ def polybar():
 
     # Instalando los requerimientos necesarios
     os.system("sudo apt update")
-    os.system("sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y")
-    os.system("sudo apt update && sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev dunst firejail rofi feh ranger -y")
+    os.system("sudo apt install -y cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y")
+    os.system("sudo apt update && sudo apt install -y meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev dunst firejail rofi feh -y")
+    
     # Instalando polybar
     os.system("git clone --recursive https://github.com/polybar/polybar")
     os.system("cd polybar")
@@ -311,7 +311,7 @@ def polybar():
 
     os.system("whoami>user.txt")
     os.system("user=$(cat user.txt)")
-    os.system("groups yue>group.txt")
+    os.system("groups>group.txt")
     os.system("group=$(awk '{print$1}' group.txt)")
     os.system("sudo chown $user:$group /opt/")
 
@@ -401,7 +401,7 @@ def polybar():
     os.system("~/.fzf/install --all")
 
     #instalando ranger
-    os.system()
+    #os.system()
     
     # Instalando sudo plugin para zsh
     os.system("sudo mkdir -p /usr/share/zsh-plugins/")
