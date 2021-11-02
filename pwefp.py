@@ -182,24 +182,28 @@ def bspwm ():
     os.system("make")
     os.system("sudo make install")
     os.system("sudo -y apt install bspwm -y")
-    os.system("cd ..")
-    # Eliminando el repositorio local de bspwm
-    os.system("sudo rm -r bspwm")
 
+    # Crea las carpetas de bspwm y sxhkd en ~/.config
+    os.system("mkdir ~/.config/bspwm")
+    os.system("mkdir ~/.config/sxhkd")
+    os.system("cp examples/bspwmrc ~/.config/bspwm/")
+    
+    # Les da permisos de ejecucion a bspwmrc
+    os.system("chmod +x ~/.config/bspwm/bspwmrc")
+    os.system("cp examples/sxhkdrc ~/.config/sxhkd/")
+    os.system("cd ..")
+    
     # Instalando sxhkd
     os.system("git clone https://github.com/baskerville/sxhkd.git")
     os.system("cd sxhkd")
     os.system("make")
     os.system("sudo make install")
-    # Crea las carpetas de bspwm y sxhkd en ~/.config
-    os.system("mkdir ~/.config/bspwm")
-    os.system("mkdir ~/.config/sxhkd")
-    os.system("cp examples/bspwmrc ~/.config/bspwm/")
-    # Les da permisos de ejecucion a bspwmrc
-    os.system("chmod +x ~/.config/bspwm/bspwmrc")
-    os.system("cp ../sxhkdrc ~/.config/sxhkd/")
+    os.system("cd ..")
+   
     # Eliminando el repositorio local de sxhkd
     os.system("sudo rm -r sxhkd")
+    # Eliminando el repositorio local de bspwm
+    os.system("sudo rm -r bspwm")
 
     # Copiando el archivo bspwm_resize
     os.system("mkdir ~/.config/bspwm/scripts/")
