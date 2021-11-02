@@ -175,7 +175,8 @@ def bspwm ():
 
     # Instalando los requeremientos necesarios
     os.system("sudo apt update")
-    os.system("sudo apt install -y build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y")
+    os.system("sudo apt install -y build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev bspwm -y")
+    
     # Instalando bspwm 
     os.system("git clone https://github.com/baskerville/bspwm.git")
     os.system("cd bspwm")
@@ -349,7 +350,7 @@ def polybar():
     os.system("sudo echo 'source ~/.powerlevel10k/powerlevel10k.zsh-theme' >> /root/.zshrc")
    
     # Seleccionando si quiere configurar la p10k a su gusto o si quiere una identica a la de S4vitar
-    optzsh=input("'\033[1;33m'\n¿Desea tener su zsh identica a la de s4vitar o desea ejecutar el asistente de instalacion de p10k?\nDigite Si para tener su zsh igual a la de S4vitar digite No para ejecutar el asistente -> ")
+    optzsh=input("'\033[1;33m'\n¿Desea tener su zsh identica a la de s4vitar o desea ejecutar el asistente de instalacion de p10k?\nDigite Si para tener su zsh igual a la de S4vitar digite No para ejecutar el asistente -> \033[0m")
     if optzsh == 'Si' or 'si' or 'sI' or 'SI':
         os.system("cp ~.p10k.zsh")
         os.system("sudo cp ~.p10k.zsh")
@@ -358,7 +359,7 @@ def polybar():
         os.system("zsh")
     
     # Configurando como tipo de shell principal ls zsh para usuario
-    os.system("chsh -s /usr/bin/zsh")
+    os.system("usermod --shell /usr/bin/zsh $user")
 
     # Configurando como tipo de shell principal ls zsh para root
     os.system("sudo chsh -s /usr/bin/zsh")
