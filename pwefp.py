@@ -181,11 +181,11 @@ def bspwm ():
     os.system("cd bspwm")
     os.system("make")
     os.system("sudo make install")
-    os.system("sudo -y apt install bspwm -y")
+    os.system("sudo apt -y install bspwm -y")
 
     # Crea las carpetas de bspwm y sxhkd en ~/.config
-    os.system("mkdir ~/.config/bspwm")
-    os.system("mkdir ~/.config/sxhkd")
+    os.system("mkdir ~/.config/bspwm sxhkd")
+    # os.system("mkdir ~/.config/sxhkd")
     os.system("cp examples/bspwmrc ~/.config/bspwm/")
     
     # Les da permisos de ejecucion a bspwmrc
